@@ -22,14 +22,15 @@ public class WineController {
 
     private final WineService wineService;
 
+    //와인등록 페이지
     @GetMapping("/wines/new")
-    public String createForm(Model model) {
+    public String createWineForm(Model model) {
         model.addAttribute("wineForm", new WineDto.NewWineForm());
         return "wines/createWineForm";
     }
 
     @PostMapping("/wines/new")
-    public String create(@Valid WineDto.NewWineForm form, BindingResult result) {
+    public String createWine(@Valid WineDto.NewWineForm form, BindingResult result) {
 
         if (result.hasErrors()) {
             return "members/createWineForm";
@@ -37,9 +38,11 @@ public class WineController {
 
         Wine wine = new Wine(form.getName(), form.getCountry(), form.getRegion(), form.getType(), form.getGrapes(), form.getProducer(), form.getVintage(), form.getAbv());
 
-
         wineService.join(wine);
         return "redirect:/";
 
     }
+
+
+
 }

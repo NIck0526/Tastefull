@@ -12,7 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @GeneratedValue
@@ -35,4 +35,6 @@ public class Member {
         this.country = country;
         this.preference = preference;
     }
+
+
 }
