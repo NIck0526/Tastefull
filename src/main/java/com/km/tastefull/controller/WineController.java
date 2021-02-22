@@ -1,12 +1,12 @@
 package com.km.tastefull.controller;
 
-import com.km.tastefull.domain.Member;
-import com.km.tastefull.domain.Preference;
 import com.km.tastefull.domain.Wine;
-import com.km.tastefull.dto.MemberDto;
 import com.km.tastefull.dto.WineDto;
 import com.km.tastefull.service.WineService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +21,8 @@ public class WineController {
 
 
     private final WineService wineService;
+
+
 
     //와인등록 페이지
     @GetMapping("/wines/new")
@@ -42,6 +44,20 @@ public class WineController {
         return "redirect:/";
 
     }
+
+
+    //와인 리스트 조회
+    @GetMapping("/wines")
+    public Page<WineDto.wineList> wineList(@PageableDefault(size = 5) Pageable pageable) {
+        Page<Wine> page = wineService.list(pageable);
+
+
+//        Page<MemberDto> map = page.map(member -> new MemberDto(member.getId(), member.getUsername(), "teamA"));
+        Page<WineDto.wineList> map = page.map(w -> new WineDto.wineList(w.getId(),w.getName(),w.getCountry(),w.getRegion(),w.getType(),w.getGrapes(),w.getProducer()));
+        return map;
+    }
+
+
 
 
 

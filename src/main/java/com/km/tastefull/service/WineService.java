@@ -5,6 +5,8 @@ import com.km.tastefull.domain.Wine;
 import com.km.tastefull.repository.MemberRepository;
 import com.km.tastefull.repository.WineRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,5 +20,10 @@ public class WineService {
         return wine.getId();
     }
 
+    public Page<Wine> list(Pageable pageable){
+
+        return wineRepository.findAll(pageable);
+
+    }
 
 }
