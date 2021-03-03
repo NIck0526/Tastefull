@@ -8,20 +8,30 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>#</th>
-                <th>이름</th>
-                <th>도시</th>
-                <th>주소</th>
-                <th>우편번호</th>
+                <th>이메일</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>국가</th>
+                <th>선호지역1</th>
+                <th>선호지역2</th>
+                <th>선호지역3</th>
+                <th>선호품종1</th>
+                <th>선호품종2</th>
+                <th>선호품종3</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="member : ${members}">
-                <td th:text="${member.id}"></td>
-                <td th:text="${member.name}"></td>
-                <td th:text="${member.address?.city}"></td>
-                <td th:text="${member.address?.street}"></td>
-                <td th:text="${member.address?.zipcode}"></td>
+                <td th:text="${member.email}"></td>
+                <td th:text="${member.age}"></td>
+                <td th:text="${member.gender}"></td>
+                <td th:text="${member.country}"></td>
+                <td th:text="${member.pref_region1}"></td>
+                <td th:text="${member.pref_region2}"></td>
+                <td th:text="${member.pref_region3}"></td>
+                <td th:text="${member.pref_grape1}"></td>
+                <td th:text="${member.pref_grape2}"></td>
+                <td th:text="${member.pref_grape3}"></td>
             </tr>
             </tbody>
         </table>

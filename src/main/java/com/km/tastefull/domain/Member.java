@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -27,6 +29,9 @@ public class Member extends BaseEntity{
 
     @Embedded
     private Preference preference;
+
+    @OneToMany(mappedBy = "member") //cascade
+    private List<MemberWine> memberWines = new ArrayList<>();
 
     public Member(@NotEmpty String email, int age, String gender, String country, Preference preference) {
         this.email = email;

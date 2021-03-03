@@ -26,7 +26,7 @@ class WineServiceTest {
     void join() {
 
         //given
-        Wine wine = new Wine("Calera", "United States", "Central Coast", "Red", "Pinot Noir", "Calera", 2017, 14.5);
+        Wine wine = new Wine("Calera", "United States", "Central Coast", "Red", "Pinot Noir", "N","Calera", 2017, 14.5);
 
         System.out.println("wine.getName() = " + wine.getName());
 

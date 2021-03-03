@@ -37,13 +37,13 @@ public class InitDB {
             em.persist(member);
 
             //Wine 생성
-            Wine wine1 = new Wine("Calera", "United States","Central Coast","Red","Pinot Noir","Calera",2017,14.5);
+            Wine wine1 = new Wine("Calera", "United States","Central Coast","Red","Pinot Noir", "N","Calera",2017,14.5);
             em.persist(wine1);
 
-            Wine wine2 = new Wine("Calera", "United States","Central Coast","White","Chardonnay","Calera",2017,11.5);
+            Wine wine2 = new Wine("Calera", "United States","Central Coast","White","Chardonnay", "N","Calera",2017,11.5);
             em.persist(wine2);
 
-            Wine wine3 = new Wine("Rosso di Montalchino Leopoldo", "Italy","Tuscan","Red","Sangiovese","Tenuta Il Poggione",2018,14);
+            Wine wine3 = new Wine("Rosso di Montalchino Leopoldo", "Italy","Tuscan","Red","Sangiovese", "N", "Tenuta Il Poggione",2018,14);
             em.persist(wine3);
 
 

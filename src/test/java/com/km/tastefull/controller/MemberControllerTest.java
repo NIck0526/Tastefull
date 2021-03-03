@@ -33,17 +33,16 @@ class MemberControllerTest {
     public void 회원가입() throws Exception{
 
         //given
-        MemberDto.JoinForm joinForm = new MemberDto.JoinForm().builder()
-                .age(23)
-                .email("test@gmail.com")
-                .country("France")
-                .gender("Male")
-                .pref_grape1("Pinot noir")
-                .pref_grape2("Shiraz")
-                .pref_grape3("Sangiovese")
-                .pref_region1("Chianti Classico")
-                .pref_region2("Cote du Rhone")
-                .build();
+        MemberDto joinForm = new MemberDto();
+                joinForm.setAge(23);
+                joinForm.setEmail("test@gmail.com");
+                joinForm.setCountry("France");
+                joinForm.setGender("Male");
+                joinForm.setPref_grape1("Pinot noir");
+                joinForm.setPref_grape2("Shiraz");
+                joinForm.setPref_grape3("Sangiovese");
+                joinForm.setPref_region1("Chianti Classico");
+                joinForm.setPref_region2("Cote du Rhone");
         Preference preference = new Preference(joinForm.getPref_region1(), joinForm.getPref_region2(), joinForm.getPref_region3(),
                 joinForm.getPref_grape1(), joinForm.getPref_grape2(), joinForm.getPref_grape3());
 
